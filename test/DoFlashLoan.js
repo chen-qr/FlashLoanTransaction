@@ -29,6 +29,7 @@ describe("测试DoFlashLoan合约逻辑", function() {
         
         // 合约的初始金额为0
         expect(await doFlashLoan.getBalance()).to.equal(0);
+        console.log(doFlashLoan.address);
 
         // 向合约转账
         await owner.sendTransaction({
