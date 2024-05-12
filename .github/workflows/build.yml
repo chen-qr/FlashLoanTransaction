@@ -1,0 +1,16 @@
+name: build
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: alexchenqr/solidity-smart-contract:latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run: npm install
+      - run: npx hardhat --version
+      - name: Run tests
+        env:
+          ALCHEMY_API_KEY: ${{ secrets.ALCHEMY_API_KEY }}
+          FORK_TEST_ADDR: ${{ secrets.FORK_TEST_ADDR }}
+        run: npx hardhat clean && npx hardhat compile && npx hardhat test
