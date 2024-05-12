@@ -44,5 +44,9 @@ contract DoFlashLoan is FlashLoanSimpleReceiverBase {
         );
     }
 
+    function getReservesList() external view returns (address[] memory) {
+        return POOL.getReservesList();
+    }
+
     receive() external payable {}
 }
