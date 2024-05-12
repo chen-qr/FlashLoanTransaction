@@ -7,8 +7,9 @@ describe("测试DoFlashLoan合约逻辑", function() {
     async function deployTokenFixture() {
         const DoFlashLoan = await ethers.getContractFactory("DoFlashLoan");
         const doFlashLoan = await DoFlashLoan.deploy(process.env.POOL_ADDR_PROVIDER);
-        await doFlashLoan.deployed();
+        await doFlashLoan.waitForDeployment();
 
+        console.log('Contract deployed to:', doFlashLoan.target);
         return { DoFlashLoan, doFlashLoan};
     }
 
@@ -30,11 +31,10 @@ describe("测试DoFlashLoan合约逻辑", function() {
         
         // 合约的初始金额为0
         expect(await doFlashLoan.getBalance()).to.equal(0);
-        console.log(doFlashLoan.address);
 
         // 向合约转账
         await owner.sendTransaction({
-            to: doFlashLoan.address,
+            to: doFlashLoan.target,
             value: 100000000000
         });
         
