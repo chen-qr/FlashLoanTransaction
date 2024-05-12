@@ -7,11 +7,11 @@ import { IERC20 } from "@aave/core-v3/contracts/dependencies/openzeppelin/contra
 
 contract DoFlashLoan is FlashLoanSimpleReceiverBase {
 
-    address payable owner;
+    address private owner;
 
     constructor(address _addressProvider, address initialOwner) FlashLoanSimpleReceiverBase(IPoolAddressesProvider(_addressProvider)) {
         require(initialOwner != address(0), "Owner address cannot be the zero address.");
-        owner = owner;
+        owner = initialOwner;
     }
 
     function executeOperation(
