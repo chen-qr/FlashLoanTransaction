@@ -12,12 +12,10 @@ describe("Test DoFlashLoan", function() {
 
     it(`检查闪电贷资金池是否连接成功`, async function() {
         const { doFlashLoan } = await loadFixture(deployTokenFixture);
-
-        const testNum = await doFlashLoan.getTestNum();
-        assert(testNum == 1,  "测试合约是否实例化");
         
         const reserves = await doFlashLoan.getReservesList();
-        console.log(reserves);
-        assert(reserves.length > 0,  "存在可借贷的资产");
+        
+        assert(reserves.length > 0,  "可借贷资产数量不为0");
+        assert(reserves[1].substring(0, 2) == "0x",  "可借贷资产内容是Token地址");
     });
 });

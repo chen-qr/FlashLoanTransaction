@@ -44,10 +44,6 @@ contract DoFlashLoan is FlashLoanSimpleReceiverBase {
         );
     }
 
-    function getTestNum() external pure returns (uint256) {
-        return 1;
-    }
-
     function getReservesList() external view returns (address[] memory) {
         return POOL.getReservesList();
     }
