@@ -31,10 +31,10 @@ describe("测试DoFlashLoan合约逻辑", function() {
         expect(await doFlashLoan.getBalance()).to.equal(0);
 
         // 向合约转账
-        // await owner.sendTransaction({
-        //     to: doFlashLoan.address,
-        //     value: 10^12
-        // });
+        await owner.sendTransaction({
+            to: doFlashLoan.address,
+            value: 10^12
+        });
         
         // await doFlashLoan.connect(owner).requireFlashLoan(aToken, 100, 
         //     { 
