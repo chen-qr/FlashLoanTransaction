@@ -24,9 +24,9 @@ describe("测试DoFlashLoan合约逻辑", function() {
         
         const aToken = process.env.A_TOKEN;
         const addr = process.env.OWNER_ADDRESS;
-        
+
         await doFlashLoan.connect(addr).requireFlashLoan(aToken, 100, 
-            {gasLimit: 200000, gasPrice: ethers.utils.parseUnits('20', 'gwei')}
+            {gasLimit: 200000, gasPrice: ethers.parseUnit('20', 'gwei')}
         );
     });
 });
