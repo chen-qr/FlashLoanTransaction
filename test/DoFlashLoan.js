@@ -33,7 +33,7 @@ describe("测试DoFlashLoan合约逻辑", function() {
         // 向合约转账
         await owner.sendTransaction({
             to: doFlashLoan.address,
-            value: 10^12
+            value: 100000000000
         });
         
         // await doFlashLoan.connect(owner).requireFlashLoan(aToken, 100, 
