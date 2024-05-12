@@ -26,6 +26,9 @@ describe("测试DoFlashLoan合约逻辑", function() {
         const aToken = process.env.A_TOKEN;
 
         const [owner] = await ethers.getSigners();
+        
+        // 合约的初始金额为0
+        expect(await doFlashLoan.getBalance()).to.equal(0);
 
         // 向合约转账
         await owner.sendTransaction({
