@@ -1,6 +1,6 @@
 const { loadFixture } = require("@nomicfoundation/hardhat-network-helpers");
 const { expect, assert } = require("chai");
-const ethers = require('ethers');
+const ethers = require('hardhat');
 
 describe("测试DoFlashLoan合约逻辑", function() {
 
