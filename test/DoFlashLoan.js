@@ -5,7 +5,7 @@ describe("Test DoFlashLoan", function() {
 
     async function deployTokenFixture() {
         const DoFlashLoan = await ethers.getContractFactory("DoFlashLoan");
-        const doFlashLoan = await DoFlashLoan(process.env.POOL_ADDR_PROVIDER).deploy();
+        const doFlashLoan = await DoFlashLoan().deploy(process.env.POOL_ADDR_PROVIDER);
 
         return { DoFlashLoan, doFlashLoan};
     }
