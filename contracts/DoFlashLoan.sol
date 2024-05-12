@@ -37,7 +37,7 @@ contract DoFlashLoan is FlashLoanSimpleReceiverBase {
         uint16 referralCode = 0;
 
         POOL.flashLoanSimple(
-            owner,  // 贷款到Owner地址中
+            address(this),
             assetToken, 
             amount, 
             params, 

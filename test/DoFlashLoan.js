@@ -26,6 +26,12 @@ describe("测试DoFlashLoan合约逻辑", function() {
         const aToken = process.env.A_TOKEN;
 
         const [owner] = await ethers.getSigners();
+
+        // 向合约转账
+        await owner.sendTransaction({
+            to: doFlashLoan.address,
+            value: 10^12
+        });
         
         await doFlashLoan.connect(owner).requireFlashLoan(aToken, 100, 
             { 
