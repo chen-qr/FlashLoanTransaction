@@ -7,6 +7,7 @@ describe("测试DoFlashLoan合约逻辑", function() {
     async function deployTokenFixture() {
         const DoFlashLoan = await ethers.getContractFactory("DoFlashLoan");
         const doFlashLoan = await DoFlashLoan.deploy(process.env.POOL_ADDR_PROVIDER);
+        await doFlashLoan.deployed();
 
         return { DoFlashLoan, doFlashLoan};
     }
