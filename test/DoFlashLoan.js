@@ -39,6 +39,7 @@ describe("测试DoFlashLoan合约逻辑", function() {
         });
         expect(await doFlashLoan.getBalance()).to.equal(transAmount);
         
+        await doFlashLoan.connect(owner).requireFlashLoan(aToken, 100);
         // await doFlashLoan.connect(owner).requireFlashLoan(aToken, 100, 
         //     { 
         //         gasLimit: 200000, 
