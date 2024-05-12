@@ -31,12 +31,13 @@ describe("测试DoFlashLoan合约逻辑", function() {
         
         // 合约的初始金额为0
         expect(await doFlashLoan.getBalance()).to.equal(0);
-
         // 向合约转账
+        const transAmount = 100000000000;
         await owner.sendTransaction({
             to: doFlashLoan.target,
-            value: 100000000000
+            value: transAmount
         });
+        expect(await doFlashLoan.getBalance()).to.equal(transAmount);
         
         // await doFlashLoan.connect(owner).requireFlashLoan(aToken, 100, 
         //     { 
