@@ -14,7 +14,7 @@ contract DoFlashLoan is FlashLoanSimpleReceiverBase {
     //     owner = initialOwner;
     // }
 
-    constructor(address _addressProvider) FlashLoanSimpleReceiverBase(IPoolAddressesProvider(_addressProvider)) {
+    constructor(address _addressProvider, address initialOwner) FlashLoanSimpleReceiverBase(IPoolAddressesProvider(_addressProvider)) {
     }
 
     function executeOperation(
