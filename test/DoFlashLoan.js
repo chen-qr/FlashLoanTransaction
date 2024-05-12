@@ -16,8 +16,8 @@ describe("Test DoFlashLoan", function() {
         const testNum = await doFlashLoan.getTestNum();
         assert(testNum == 1,  "测试合约是否实例化");
         
-        // const reserves = await doFlashLoan.getReservesList();
-        // console.log(reserves);
-        // assert(reserves.length > 0,  "存在可借贷的资产");
+        const reserves = await doFlashLoan.getReservesList();
+        console.log(reserves);
+        assert(reserves.length > 0,  "存在可借贷的资产");
     });
 });
