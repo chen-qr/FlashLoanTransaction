@@ -26,4 +26,23 @@ contract DoFlashLoan is FlashLoanSimpleReceiverBase {
         IERC20(asset).approve(address(POOL), totalAmount);
         return true;
     }
+
+    // 向闪电贷申请贷款
+    function requireFlashLoan(address assetToken, uint256 amount) public {
+
+        address receiverAddress = address(this); // 接受贷款的地址，使用本合约地址
+        
+        bytes memory params = "";
+        uint16 referralCode = 0;
+
+        POOL.flashLoanSimple(
+            receiverAddress, 
+            assetToken, 
+            amount, 
+            params, 
+            referralCode 
+        );
+    }
+
+    receive() external payable {}
 }
