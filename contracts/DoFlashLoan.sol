@@ -32,6 +32,7 @@ contract DoFlashLoan is FlashLoanSimpleReceiverBase {
 
     // 向闪电贷申请贷款
     function requireFlashLoan(address assetToken, uint256 amount) public {
+        require(msg.sender == owner, "Only onwer can call!");
         
         bytes memory params = "";
         uint16 referralCode = 0;
