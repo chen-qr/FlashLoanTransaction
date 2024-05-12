@@ -19,5 +19,6 @@ jobs:
       - name: Run tests
         env:
           ALCHEMY_API_KEY: ${{ secrets.ALCHEMY_API_KEY }}
-          FORK_TEST_ADDR: ${{ secrets.FORK_TEST_ADDR }}
+          POOL_ADDR_PROVIDER: ${{ secrets.POOL_ADDR_PROVIDER }}
+
         run: npx hardhat clean && npx hardhat compile && npx hardhat test
