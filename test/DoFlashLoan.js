@@ -19,11 +19,11 @@ describe("测试DoFlashLoan合约逻辑", function() {
         assert(reserves[1].substring(0, 2) == "0x",  "可借贷资产内容是Token地址");
     });
 
-    // it(`测试贷款功能`, async function() {
-    //     const { doFlashLoan } = await loadFixture(deployTokenFixture);
+    it(`测试贷款功能`, async function() {
+        const { doFlashLoan } = await loadFixture(deployTokenFixture);
         
-    //     const aToken = process.env.A_TOKEN;
+        const aToken = process.env.A_TOKEN;
 
-    //     await doFlashLoan.requireFlashLoan(aToken, 100);
-    // });
+        await doFlashLoan.requireFlashLoan(aToken, 100);
+    });
 });
