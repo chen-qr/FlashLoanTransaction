@@ -6,7 +6,7 @@ describe("测试DoFlashLoan合约逻辑", function() {
 
     async function deployTokenFixture() {
         const DoFlashLoan = await ethers.getContractFactory("DoFlashLoan");
-        const doFlashLoan = await DoFlashLoan.deploy(process.env.POOL_ADDR_PROVIDER, process.env.OWNER_ADDRESS);
+        const doFlashLoan = await DoFlashLoan.deploy(process.env.POOL_ADDR_PROVIDER);
 
         return { DoFlashLoan, doFlashLoan};
     }
@@ -24,12 +24,13 @@ describe("测试DoFlashLoan合约逻辑", function() {
         const { doFlashLoan } = await loadFixture(deployTokenFixture);
         
         const aToken = process.env.A_TOKEN;
-        const addr = process.env.OWNER_ADDRESS;
+
+        const [owner] = await ethers.getSigners();
         
         // await doFlashLoan.connect(addr).requireFlashLoan(aToken, 100, 
         //     {gasLimit: 200000, gasPrice: parseUnits('20', 'gwei')}
         // );
 
-        await doFlashLoan.connect(addr).requireFlashLoan(aToken, 100);
+        await doFlashLoan.connect(owner).requireFlashLoan(aToken, 100);
     });
 });

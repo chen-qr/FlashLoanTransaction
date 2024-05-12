@@ -9,9 +9,8 @@ contract DoFlashLoan is FlashLoanSimpleReceiverBase {
 
     address private owner;
 
-    constructor(address _addressProvider, address initialOwner) FlashLoanSimpleReceiverBase(IPoolAddressesProvider(_addressProvider)) {
-        require(initialOwner != address(0), "Owner address cannot be the zero address.");
-        owner = initialOwner;
+    constructor(address _addressProvider) FlashLoanSimpleReceiverBase(IPoolAddressesProvider(_addressProvider)) {
+        owner = msg.sender;
     }
 
     function executeOperation(

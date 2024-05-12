@@ -19,6 +19,7 @@ jobs:
       - name: Run tests
         env:
           ALCHEMY_API_KEY: ${{ secrets.ALCHEMY_API_KEY }}
+          RUN_KEY: ${{ secrets.RUN_KEY }}
           POOL_ADDR_PROVIDER: ${{ secrets.POOL_ADDR_PROVIDER }}
           OWNER_ADDRESS: ${{ secrets.OWNER_ADDRESS }}
           A_TOKEN: ${{ secrets.A_TOKEN }}
