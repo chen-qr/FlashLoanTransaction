@@ -28,7 +28,10 @@ describe("测试DoFlashLoan合约逻辑", function() {
         const [owner] = await ethers.getSigners();
         
         await doFlashLoan.connect(owner).requireFlashLoan(aToken, 100, 
-            {gasLimit: 200000, gasPrice: parseUnits('20', 'gwei')}
+            { 
+                gasLimit: 200000, 
+                gasPrice: 125000000000 
+            }
         );
     });
 });
