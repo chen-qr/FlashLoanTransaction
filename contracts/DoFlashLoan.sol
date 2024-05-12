@@ -7,8 +7,11 @@ import { IERC20 } from "@aave/core-v3/contracts/dependencies/openzeppelin/contra
 
 contract DoFlashLoan is FlashLoanSimpleReceiverBase {
 
-    constructor(address _addressProvider) FlashLoanSimpleReceiverBase(IPoolAddressesProvider(_addressProvider)) {
+    address payable owner;
 
+    constructor(address _addressProvider, address initialOwner) FlashLoanSimpleReceiverBase(IPoolAddressesProvider(_addressProvider)) {
+        require(initialOwner != address(0), "Owner address cannot be the zero address.");
+        owner = owner;
     }
 
     function executeOperation(
@@ -29,14 +32,12 @@ contract DoFlashLoan is FlashLoanSimpleReceiverBase {
 
     // 向闪电贷申请贷款
     function requireFlashLoan(address assetToken, uint256 amount) public {
-
-        address receiverAddress = address(this); // 接受贷款的地址，使用本合约地址
         
         bytes memory params = "";
         uint16 referralCode = 0;
 
         POOL.flashLoanSimple(
-            receiverAddress, 
+            owner,  // 贷款到Owner地址中
             assetToken, 
             amount, 
             params, 
