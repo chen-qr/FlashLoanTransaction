@@ -22,6 +22,10 @@ contract DoFlashLoan is FlashLoanSimpleReceiverBase {
     ) external override returns (bool) {
         
         // 接受到贷款后，处理贷款的使用逻辑，用贷款赚钱
+        // 贷款应用场景：
+        // - 套利 Arbitrage
+        // - 更换抵押品 Swapping Collateral
+        // - 自我清算 Self-Liquidation
         
         // 贷款使用逻辑执行完后，执行还款逻辑
         uint256 totalAmount = amount + premium;
