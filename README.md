@@ -28,7 +28,7 @@
 
 事务机制增加了智能合约的安全性。通过严格的状态检查和回滚机制，能够防止恶意用户利用合约的漏洞进行攻击。例如，避免**重入攻击**等常见智能合约攻击手段。
 
-[重入攻击更多说明](https://github.com/chen-qr/SmartContractSafetyLists?tab=readme-ov-file#1-%E9%87%8D%E5%85%A5%E6%94%BB%E5%87%BB)
+[查看我对重入攻击、前端交易等更多智能合约安全问题的整理](https://github.com/chen-qr/SmartContractSafetyLists?tab=readme-ov-file#1-%E9%87%8D%E5%85%A5%E6%94%BB%E5%87%BB)
 
 ##### 支撑Gas机制
 
